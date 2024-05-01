@@ -3,42 +3,48 @@
             <style>
                 body {
                     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-                    margin: 150px;
+                    margin: 200px;
+                    margin-top: 100px;
                     padding: 0;
                 }
-            </style>
-            
-            
-            <body
-        class="c13 doc-content"><h1 class="c3" id="h.84bv7i3y93p"><span
-                class="c11">Pasta Factory Final Report</span></h1><h1 class="c9"
-            id="h.hfi3wojo3fxi"><span class="c12">Abstract</span></h1><p
-            class="c1"><span class="c0">Pasta Factory is a simulation of a pasta
+            </style><body
+        class="c14 doc-content"><h1 class="c13" id="h.84bv7i3y93p"><span
+                class="c0">Pasta Factory Final Report</span></h1>
+                <h2 style="font-weight: 300;">Group 10: Jeffrey Huang, Brian Quach, Jeremy Li, Emily Xiao</h2>
+                <h1 class="c7"
+            id="h.hfi3wojo3fxi"></gr><span class="c3">Abstract</span></h1><p
+            class="c1"><span class="c2">Pasta Factory is a simulation of a pasta
                 cutting machine splitting dough into individual noodles.
                 Components of the machine are interactive via the GUI, such as
                 the motion of the conveyor belt and the rendering/motion of the
                 slicer&rsquo;s individual blades. To summarize the process of
-                pasta cutting:</span></p><p class="c1 c2"><span
-                class="c0"></span></p><p class="c1"><span class="c0">When the
+                pasta cutting:</span></p><p class="c1 c4"><span
+                class="c2"></span></p><p class="c1"><span class="c2">When the
                 pasta dough, modeled as a cloth, falls onto the conveyor belt,
                 we keep the dough moving by applying velocity onto the object
                 anytime there is a collision with the belt. Then, when the dough
                 passes through the slicer, blades descend (triggered through key
                 press) to chop up the dough by splitting the cloth. The noodles
                 formed or new cloths are then moved off the conveyor belt into a
-                bowl. </span></p><h1 class="c9" id="h.krpjdfj2kp0v"><span
-                class="c10">Technical Approach</span></h1><p class="c1"><span>We
-                used project 4 as our main reference point. </span></p><h2
-            class="c7" id="h.poetasj84pmy"><span class="c8">Creating and
-                rendering collision objects</span></h2><p class="c1"><span
-                class="c0">We want to create various shapes in the scene for our
-                pasta cutting machine. We initially considered creating Collada
-                files with Blender. Upon realizing our baseline Clothsim code
-                does not innately have infrastructure to accommodate Collada
-                files, we sidelined the idea to make a custom .dae parser to
-                first explore if we could manipulate existing plane and sphere
-                rendering/collision code. </span></p><p class="c1 c2"><span
-                class="c0"></span></p><p class="c1"><span class="c0">In
+                bowl. </span></p><p class="c1 c4"><span class="c2"></span></p><p
+            class="c1"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 666.50px; height: 379.14px;"><img
+                    alt src="images/image3.png"
+                    style="width: 666.50px; height: 379.14px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title></span></p><h1 class="c7" id="h.krpjdfj2kp0v"><span
+                class="c11 c3">Technical Approach</span></h1><p
+            class="c1"><span>We used project 4 as our main reference point.
+            </span></p><h2 class="c5" id="h.poetasj84pmy"><span
+                class="c8">Creating and rendering collision
+                objects</span></h2><p class="c1"><span class="c2">We want to
+                create various shapes in the scene for our pasta cutting
+                machine. We initially considered creating Collada files with
+                Blender. Upon realizing our baseline Clothsim code does not
+                innately have infrastructure to accommodate Collada files, we
+                sidelined the idea to make a custom .dae parser to first explore
+                if we could manipulate existing plane and sphere
+                rendering/collision code. </span></p><p class="c1 c4"><span
+                class="c2"></span></p><p class="c1"><span class="c2">In
                 Clothsim, we are given the plane.cpp, which spans the whole
                 plane. To carve out specific shapes from a plane, we implemented
                 a &ldquo;manual render&rdquo; mode in plane.cpp. When manual
@@ -49,29 +55,38 @@
                 composed of several adjacent planes, like cubes (i.e. the
                 slicing box), are anchored to a centroid and the corners of each
                 face are bound by a specified distance from the centroid.
-            </span></p><p class="c1 c2"><span class="c0"></span></p><p
-            class="c1"><span class="c0">For collision detection, we first check
+            </span></p><p class="c1 c4"><span class="c2"></span></p><p
+            class="c1"><span class="c2">For collision detection, we first check
                 that a point mass has crossed over the plane between timesteps
                 (like in homework 4), and then we check that the projection of
                 this point onto the plane lies in the four half-spaces formed by
                 the four edges of the polygon. One caveat is that this only
-                works for convex polygons.</span></p><p class="c1 c2"><span
-                class="c0"></span></p><h2 class="c7"
+                works for convex polygons.</span></p><p class="c1 c4"><span
+                class="c2"></span></p><p class="c1"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 330.50px; height: 187.48px;"><img
+                    alt src="images/image8.png"
+                    style="width: 330.50px; height: 187.48px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title></span><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 332.49px; height: 188.20px;"><img
+                    alt src="images/image2.png"
+                    style="width: 332.49px; height: 188.20px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title></span></p><p class="c1 c4"><span
+                class="c2"></span></p><h2 class="c5"
             id="h.ix3p2wy1wxf"><span>Global Collisions</span></h2><p
-            class="c1"><span class="c0">Because we have multiple cloths
+            class="c1"><span class="c2">Because we have multiple cloths
                 (multiple pasta noodles), we needed to implement global
                 collisions. The first step in this process was adding the
                 ability to add multiple cloths and also adjusting the initial
                 positions of cloths. In order to do this, we modified
                 main.cpp&rsquo;s loadobjectsfromfile to parse new parameters for
-                the cloths.</span></p><p class="c1 c2"><span
-                class="c0"></span></p><p class="c1"><span class="c0">Then, we
+                the cloths.</span></p><p class="c1 c4"><span
+                class="c2"></span></p><p class="c1"><span class="c2">Then, we
                 moved the collision functions for point masses to
                 clothSimulator.cpp (where before it was in cloth.cpp). This is
                 the equivalent of making cloth collisions global so that now it
                 is being handled in clothsimulator.cpp. </span></p><p
-            class="c1 c2"><span class="c0"></span></p><p class="c1"><span
-                class="c0">Thus, in the simulate loop, at every time step we do
+            class="c1 c4"><span class="c2"></span></p><p class="c1"><span
+                class="c2">Thus, in the simulate loop, at every time step we do
                 the following: First, we go through every cloth and then
                 simulate the acceleration on all the pointmasses. Then we hash
                 all the pointmasses into a global hashmap. Then, we check each
@@ -79,21 +94,31 @@
                 works because self-collisions (collisions of point masses of the
                 same cloth) and pointmass-to-pointmass collisions of different
                 cloths can be modeled in an identical manner. </span></p><p
-            class="c1 c2"><span class="c0"></span></p><p class="c1"><span
-                class="c0">We were worried that this would be computationally
+            class="c1 c4"><span class="c2"></span></p><p class="c1"><span
+                class="c2">We were worried that this would be computationally
                 expensive, but this scales with the amount point masses and how
                 densely they are packed. Since the amount of noodles does not
                 affect how quickly we can simulate global collisions, we are not
-                worried about computational complexity.</span></p><h2 class="c7"
-            id="h.9prh1iw9r5xp"><span class="c8">Conveyor belt</span></h2><p
+                worried about computational complexity.</span></p><p
+            class="c1 c4"><span class="c2"></span></p><p class="c1"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 688.62px; height: 532.71px;"><img
+                    alt src="images/image5.png"
+                    style="width: 688.62px; height: 532.71px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title></span></p><h2 class="c5" id="h.9prh1iw9r5xp"><span
+                class="c8">Conveyor belt</span></h2><p
             class="c1"><span>Originally we planned to simulate the conveyor belt
                 as a connected cloth rotating on rollers. However, we did not
                 have time to reach this stretch goal. As a proxy, we used a long
                 rectangle cut out from the plane. In order to simulate the
                 conveyor belt moving pointmasses, we modified the correction
                 vectors applied to the </span><span>point masses</span><span
-                class="c0">. By adding a directional vector, it simulates
-                movement.</span></p><h2 class="c7" id="h.43wrbt9ncu9i"><span
+                class="c2">. By adding a directional vector, it simulates
+                movement.</span></p><p class="c1 c4"><span
+                class="c2"></span></p><p class="c1"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 690.50px; height: 535.86px;"><img
+                    alt src="images/image7.png"
+                    style="width: 690.50px; height: 535.86px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title></span></p><h2 class="c5" id="h.43wrbt9ncu9i"><span
                 class="c8">Slicing the pasta</span></h2><p class="c1"><span>An
                 initial approach we considered was performing spring collision
                 detection. If a slicer made contact with a spring, it would
@@ -105,10 +130,10 @@
                 rendered as connected if we were to turn on Phong or texture
                 shading. This is also why cutting the cloth only partially would
                 not work, as the cloth would still look connected.</span></p><p
-            class="c1 c2"><span class="c0"></span></p><p class="c1"><span
-                class="c0">Slicing the pasta can be broken down into several
-                parts.</span></p><p class="c1 c2"><span class="c0"></span></p><p
-            class="c1"><span class="c0">In the GUI, the user is able to select
+            class="c1 c4"><span class="c2"></span></p><p class="c1"><span
+                class="c2">Slicing the pasta can be broken down into several
+                parts.</span></p><p class="c1 c4"><span class="c2"></span></p><p
+            class="c1"><span class="c2">In the GUI, the user is able to select
                 the number of slicers as well as adjust the height of these
                 slicers. In order to slice the cloth, we check for collisions by
                 calculating the slicers height relative to the cloth. If the
@@ -117,8 +142,8 @@
                 actual slicing of the cloth. We checked if the slicer makes
                 contact with the cloth by checking if the nearest
                 pointmass&rsquo;s coordinates are close to or equal to the
-                slicer&rsquo;s coordinates.</span></p><p class="c1 c2"><span
-                class="c0"></span></p><p class="c1"><span>The slicing function
+                slicer&rsquo;s coordinates.</span></p><p class="c1 c4"><span
+                class="c2"></span></p><p class="c1"><span>The slicing function
                 takes in a cloth and a set of x-coordinates that we use to slice
                 it. Slicing can be thought of as sorting point masses into
                 buckets based on the boundaries of the box and the set of
@@ -127,32 +152,43 @@
                 split point masses into 3 buckets: [0, 0.2), [0.2, 0.4), and
                 [0.4, 1]. Once we sort these point masses into buckets, we call
                 a function that creates a new cloth given the </span><span>point
-                masses</span><span class="c0">&nbsp;in each bucket, building new
+                masses</span><span class="c2">&nbsp;in each bucket, building new
                 springs and mesh and updating each cloth&rsquo;s dimensions as
                 needed. Finally, we delete the original cloth.</span></p><p
-            class="c1 c2"><span class="c0"></span></p><p class="c1"><span>From
+            class="c1 c4"><span class="c2"></span></p><p class="c1"><span>From
                 here, we simply push these new </span><span>cloths</span><span
-                class="c0">&nbsp;into our cloth_objects vector to ensure that
+                class="c2">&nbsp;into our cloth_objects vector to ensure that
                 the rest of the simulation will reflect these
-                changes.</span></p><h2 class="c7" id="h.l3ul6m9wirmb"><span
-                class="c8">Pasta Bowl</span></h2><p class="c1"><span>To make the
-                pasta bowl, we created a hemisphere, heavily based on
-                sphere.cpp. We needed to update three parts: rendering,
-                collisions, and lighting. In order to render just half the
-                sphere, we iterated over the latitude and half the longitude.
-                This rendered the bottom half of the sphere, which looks like a
-                bowl. Collisions for the sphere now work from the inside, and it
-                detects whether or not a point mass has passed through the
-                inside of the sphere. If it has, then a correction vector is
-                applied, moving the point back inside of the sphere. This vector
-                is based on the origin of the sphere to the point&rsquo;s
-                position, effectively calculating the tangent point on the
-                sphere. Finally, we inverted the normals and lighting intensity
-                of the sphere in order to light the bowl better; before, the
-                inside of the bowl was completely dark.</span></p><p
-            class="c1 c2"><span class="c0"></span></p><h2 class="c7"
-            id="h.j0l3nrnc7df"><span class="c8">Interactivity</span></h2><p
-            class="c1"><span>To make the simulation interactive, we created key
+                changes.</span></p><p class="c1 c4"><span
+                class="c2"></span></p><p class="c1"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 681.50px; height: 530.16px;"><img
+                    alt src="images/image1.png"
+                    style="width: 681.50px; height: 530.16px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title></span></p><h2 class="c5" id="h.l3ul6m9wirmb"><span
+                class="c8">Pasta Bowl</span></h2><p class="c1"><span
+                class="c2">To make the pasta bowl, we created a hemisphere,
+                heavily based on sphere.cpp. We needed to update three parts:
+                rendering, collisions, and lighting. In order to render just
+                half the sphere, we iterated over the latitude and half the
+                longitude. This rendered the bottom half of the sphere, which
+                looks like a bowl. Collisions for the sphere now work from the
+                inside, and it detects whether or not a point mass has passed
+                through the inside of the sphere. If it has, then a correction
+                vector is applied, moving the point back inside of the sphere.
+                This vector is based on the origin of the sphere to the
+                point&rsquo;s position, effectively calculating the tangent
+                point on the sphere. Finally, we inverted the normals and
+                lighting intensity of the sphere in order to light the bowl
+                better; before, the inside of the bowl was completely
+                dark.</span></p><p class="c1 c4"><span class="c2"></span></p><p
+            class="c1"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 688.50px; height: 491.50px;"><img
+                    alt src="images/image6.png"
+                    style="width: 688.50px; height: 491.50px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title></span></p><p class="c1 c4"><span
+                class="c2"></span></p><h2 class="c5" id="h.j0l3nrnc7df"><span
+                class="c8">Interactivity</span></h2><p class="c1"><span
+                class="c2">To make the simulation interactive, we created key
                 commands and sliders on the screen that the users can engage
                 with. Similar to homework 4, &lsquo;p&rsquo; will start and stop
                 the simulation. We added the key &lsquo;b&rsquo; to enable the
@@ -163,74 +199,79 @@
                 0-7 allowing the user to choose how many pasta slicers to
                 include in the simulation. The &ldquo;slicer height&rdquo;
                 slider allows users to control how the slicers move (up and
-                down) and determine when to cut the pasta.</span></p><h1
-            class="c9" id="h.erqv73l2vtgc"><span
-                class="c10">Results</span> <br> <br>
-                <p>Below is a demo video of the slicing machine.</p>
+                down) and determine when to cut the pasta.</span></p><p
+            class="c1"><span
+                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 257.70px; height: 678.56px;"><img
+                    alt src="images/image4.png"
+                    style="width: 257.70px; height: 678.56px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                    title></span></p><h1 class="c7" id="h.erqv73l2vtgc"><span
+                class="c3 c11">Results</span></h1><p class="c1 c4"><span
+                    class="c1"><span>This is the demo of the project</span></p>
                 <video width="640" height="360" controls>
                     <source src="demovideo.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
-            </h1><p class="c1 c2"><span
-                class="c0"></span></p><h1 class="c9" id="h.vp08nce91vt"><span
-                class="c10">Contributions</span></h1><p class="c1 c2"><span
-                class="c0"></span></p><p class="c1"><span
-                class="c4">Jeffrey</span></p><ul
-            class="c6 lst-kix_udpzsjqgdpeh-0 start"><li
-                class="c1 c5 li-bullet-0"><span class="c0">Changed files to be
+                class="c2"></span></p><h1 class="c7" id="h.vp08nce91vt"><span
+                class="c11 c3">Contributions</span></h1><p class="c1 c4"><span
+                class="c2"></span></p><p class="c1"><span
+                class="c6">Jeffrey</span></p><ul
+            class="c12 lst-kix_udpzsjqgdpeh-0 start"><li
+                class="c1 c10 li-bullet-0"><span class="c2">Changed files to be
                     able to simulate and process multiple cloths.</span></li><li
-                class="c1 c5 li-bullet-0"><span class="c0">Created (cutting)
+                class="c1 c10 li-bullet-0"><span class="c2">Created (cutting)
                     functionality to split cloths and therefore create multiple
-                    cloths.</span></li><li class="c1 c5 li-bullet-0"><span
-                    class="c0">Developed cloth collision with sliders and
+                    cloths.</span></li><li class="c1 c10 li-bullet-0"><span
+                    class="c2">Developed cloth collision with sliders and
                     algorithm to properly split point masses, mesh, and
-                    springs.</span></li><li class="c1 c5 li-bullet-0"><span
-                    class="c0">Assisted in aligning objects in the simulation to
-                    proper positions.</span></li></ul><p class="c1 c2"><span
-                class="c0"></span></p><p class="c1"><span
-                class="c4">Brian</span></p><ul
-            class="c6 lst-kix_xu6ewf4iyhpc-0 start"><li
-                class="c1 c5 li-bullet-0"><span>Reconfigured the entire starter
+                    springs.</span></li><li class="c1 c10 li-bullet-0"><span
+                    class="c2">Assisted in aligning objects in the simulation to
+                    proper positions.</span></li></ul><p class="c1 c4"><span
+                class="c2"></span></p><p class="c1"><span
+                class="c6">Brian</span></p><ul
+            class="c12 lst-kix_xu6ewf4iyhpc-0 start"><li
+                class="c1 c10 li-bullet-0"><span>Reconfigured the entire starter
                     code to be able to handle multiple
-                </span><span>cloths</span><span class="c0">&nbsp;in processing.
+                </span><span>cloths</span><span class="c2">&nbsp;in processing.
                     Some files that were changed in this process include
                     clothSimulator.cpp, main.cpp, cloth.cpp. Did this by using a
                     cloth_objects array initialized in main.cpp.</span></li><li
-                class="c1 c5 li-bullet-0"><span>With Jeffrey</span><span>,
-                    handled</span><span class="c0">&nbsp;calculations involved
+                class="c1 c10 li-bullet-0"><span>With Jeffrey</span><span>,
+                    handled</span><span class="c2">&nbsp;calculations involved
                     in finding positions where cloth would be
-                    split.</span></li><li class="c1 c5 li-bullet-0"><span
-                    class="c0">Reconfigured cloth creation process to rebuild
+                    split.</span></li><li class="c1 c10 li-bullet-0"><span
+                    class="c2">Reconfigured cloth creation process to rebuild
                     springs, mesh, and pushing the new cloth into the cloth
                     objects vector.</span></li><li
-                class="c1 c5 li-bullet-0"><span class="c0">Using Adobe
+                class="c1 c10 li-bullet-0"><span class="c2">Using Adobe
                     Photoshop, created textures that would be used for the
-                    pasta.</span></li><li class="c1 c5 li-bullet-0"><span
-                    class="c0">Assisted with aligning objects in the simulation
-                    to proper positions.</span></li></ul><p class="c1 c2"><span
-                class="c0"></span></p><p class="c1"><span
-                class="c4">Emily</span></p><ul
-            class="c6 lst-kix_q9fjbucms0ju-0 start"><li
-                class="c1 c5 li-bullet-0"><span class="c0">Created
+                    pasta.</span></li><li class="c1 c10 li-bullet-0"><span
+                    class="c2">Assisted with aligning objects in the simulation
+                    to proper positions.</span></li></ul><p class="c1 c4"><span
+                class="c2"></span></p><p class="c1"><span
+                class="c6">Emily</span></p><ul
+            class="c12 lst-kix_q9fjbucms0ju-0 start"><li
+                class="c1 c10 li-bullet-0"><span class="c2">Created
                     box.h/box.cpp, implementing render and collision functions
                     for the slicer box</span></li><li
-                class="c1 c5 li-bullet-0"><span class="c0">Rendered
+                class="c1 c10 li-bullet-0"><span class="c2">Rendered
                     slicer&rsquo;s blades and handle pasta collisions with
-                    slicer</span></li><li class="c1 c5 li-bullet-0"><span
-                    class="c0">Worked on pasta bowl collisions</span></li><li
-                class="c1 c5 li-bullet-0"><span class="c0">Superimposed
+                    slicer</span></li><li class="c1 c10 li-bullet-0"><span
+                    class="c2">Worked on pasta bowl collisions</span></li><li
+                class="c1 c10 li-bullet-0"><span class="c2">Superimposed
                     collision objects and cloths in the scene</span></li></ul><p
-            class="c1 c2"><span class="c0"></span></p><p class="c1"><span
-                class="c4">Jeremy</span></p><ul
-            class="c6 lst-kix_f83vpu5cg4uv-0 start"><li
-                class="c1 c5 li-bullet-0"><span class="c0">Worked on rendering
+            class="c1 c4"><span class="c2"></span></p><p class="c1"><span
+                class="c6">Jeremy</span></p><ul
+            class="c12 lst-kix_f83vpu5cg4uv-0 start"><li
+                class="c1 c10 li-bullet-0"><span class="c2">Worked on rendering
                     partial planes</span></li><li
-                class="c1 c5 li-bullet-0"><span class="c0">Created the conveyor
-                    belt</span></li><li class="c1 c5 li-bullet-0"><span
-                    class="c0">Worked on global collisions (debugging the global
-                    collisions)</span></li><li class="c1 c5 li-bullet-0"><span
-                    class="c0">Created interactivity for the slicing
-                    mechanisms</span></li><li class="c1 c5 li-bullet-0"><span
-                    class="c0">Helped create the pasta bowl</span></li></ul><p
-            class="c2 c14"><span class="c4"></span></p></body></html>
-            
+                class="c1 c10 li-bullet-0"><span class="c2">Created the conveyor
+                    belt</span></li><li class="c1 c10 li-bullet-0"><span
+                    class="c2">Worked on global collisions (debugging the global
+                    collisions)</span></li><li class="c1 c10 li-bullet-0"><span
+                    class="c2">Created interactivity for the slicing
+                    mechanisms</span></li><li class="c1 c10 li-bullet-0"><span
+                    class="c2">Helped create the pasta bowl</span></li></ul><p
+            class="c4 c9"><span class="c6"></span></p></body></html>
+            <h1 class="c7" id="h.vp08nce91vt"><span
+                class="c11 c3">Group 10 Final Project Video</span></h1>
+                <iframe src="https://drive.google.com/file/d/1QSTmMM3F9HvxcZn4023xGhIbCF37_0eg/preview" width="640" height="480" allow="autoplay"></iframe>
